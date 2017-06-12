@@ -1,0 +1,63 @@
+
+
+tcp udp ip
+
+IP 데이터그램
+
+header format
+
+time to live 네트워크상 패킷이 살아있을 수 있는 기한. 1씩 줄어들며 0이되면 처분. 네트워크상 쓰레기 패킷이 넘치지
+ 않게 하려고
+
+protocol 상위 protocol. 위로 올려줘야 할 때.
+
+header checksum = 상위 빌드 값을 다 더해서 1의 보수.
+	받은 측에서는 받은 header을 다 더해봄. -0 이나오면 not error
+
+udp header
+
+port 번호 = 5000 ~ 65000
+	이유 = Application 계층에서 well known port(0 ~ 1024 까지) 번호를 가지고 있어서. 5000 이상할당
+
+Application 쪽으로 올려줄 때 Destination Port보고 올려줌.
+Port number = 2^16 가지 0 ~ 65535 까지
+
+
+	well-known (0 ~ 1023)
+
+Port	Program(Reserved) (Unix) ~5000
+	
+	Client용 or 사용자용 5000~
+
+
+*****비연결형 전송 (빨리 보내는게 좋음)***** 시험
+ good case = 실시간 전송 (빨리 보내야 하는 환경, 끊기지 않아야 하는 환경)
+	   = pc방 스타크레프트 udp. lan환경임으로 가까운거리에 닫힌 환경 == 빠른 환경 구축 가능 (닫힌 환경, 데이터 손실이 있지 않은 환경)
+	   = error제어 하기 힘든 환경. 위성 송신.
+
+*****연결형 Protocol******
+*****비연결형 Protocol******
+
+TCP segment
+
+ 사전에 연락해놓음 ex) 이거 보낸다. 받아라
+ "RNR" 이 오면 멈춤.
+ 우선순위에 따라서 이거 먼저 처리해라
+
+Http = hyper text를 전송하기 위한 protocol
+	htper text = 일반 text인데 링크같은 기능이 들어간 text
+https = http에 보안도 같이 처리
+telnet = 원격접속 protocol hacking이 많이 일어나서 거의 모든 server에서 다 막아버림
+DNS = Domain name 
+FTP = 파일 전송 protocol
+SMTP = simple mail protocol, 간단한 메일 보내기 위한 protocol
+	MIME = SMTP를 보완, 다목적 인터넷 확장 메일 , 간단한 메일말고 더 확장된 메일
+	SMIME = MIME에 보안을 더함
+
+Big Endian = 순서대로
+
+Little Endian = 거꾸로
+
+int = cpu bit에 따라서 달라짐 16bit 컴퓨터 = 16bit ....
+
+ 
